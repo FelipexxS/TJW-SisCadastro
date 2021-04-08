@@ -30,6 +30,27 @@
 					<h:outputText value="R$ #{cli.nascimento}" />
 				</p:column>
 			</p:dataTable>
+			
+			<p:dataTable var="tel" value="#{RegisterMB.telefone}">
+				<p:column headerText="Telefones Cliente">
+					<h:outputText value="#{tel.telefone}" />
+				</p:column>
+			</p:dataTable>
+			
+			<p:dataTable var="end" value="#{RegisterMB.endereco}">
+				<p:column headerText="Logradouro Cliente">
+					<h:outputText value="#{end.logradouro}" />
+				</p:column>
+				<p:column headerText="CEP Cliente">
+					<h:outputText value="#{end.cep}" />
+				</p:column>
+				<p:column headerText="Bairro Cliente">
+					<h:outputText value="#{end.bairro}" />
+				</p:column>
+				<p:column headerText="Cidade Cliente">
+					<h:outputText value="#{end.cidade}" />
+				</p:column>
+			</p:dataTable>
 		</div>
 	</h:form>
 </h:body>
