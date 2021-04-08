@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<!--  <h:meta charset="UTF-8">
+	<h:link rel="stylesheet" type="text/css" href="Style.css">-->
+	<h:title>Sistema de Cadastro de Clientes</h:title>
+</h:head>
+
+<h:body>
+	<h1>Informações Cliente</h1>
+	<h:form>
+		<div class="card">
+			<p:dataTable var="cli" value="#{RegisterMB.cliente}">
+				<p:column headerText="Nome Cliente">
+					<h:outputText value="#{cli.nome}" />
+				</p:column>
+
+				<p:column headerText="CPF Cliente">
+					<h:outputText value="R$ #{cli.documentos.cpf}" />
+				</p:column>
+
+				<p:column headerText="RG Cliente">
+					<h:outputText value="R$ #{cli.documentos.rg}" />
+				</p:column>
+				
+				<p:column headerText="Nascimento Cliente">
+					<h:outputText value="R$ #{cli.nascimento}" />
+				</p:column>
+			</p:dataTable>
+		</div>
+	</h:form>
+</h:body>
+</html>

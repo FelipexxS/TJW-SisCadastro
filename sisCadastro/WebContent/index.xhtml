@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<!--  <h:meta charset="UTF-8">
+	<h:link rel="stylesheet" type="text/css" href="Style.css">-->
+	<h:title>Sistema de Cadastro de Clientes</h:title>
+</h:head>
+
+<h:body>
+
+	<h1>Registre-se e encontre o que estava procurando!</h1>
+	<h:form>
+		<p:messages id="messages" />
+		<p:panelGrid columns="6" style="margin-bottom: 10px;">
+			<div class="p-field">
+				<p:outputLabel for="nomeCliente" value="Nome Cliente:" />
+				<p:inputText id="nomeCliente"
+					value="#{RegisterMB.cliente.nome}" />
+
+			</div>
+			
+			<div class="p-field">
+				<p:outputLabel for="nascCliente" value="Data de Nascimento Cliente:" />
+				<p:inputMask id="nascCliente" mask="99/99/9999"
+					value="#{RegisterMB.cliente.nascimento}" />
+			</div>
+
+			<div class="p-field">
+				<p:outputLabel for="CPFCliente" value="CPF Cliente:" />
+				<p:inputMask id="CPFCliente" mask="999.999.999-99"
+					value="#{RegisterMB.cliente.documentos.cpf}" />
+			</div>
+			
+			<div class="p-field">
+				<p:outputLabel for="rgCliente" value="RG Cliente:" />
+				<p:inputMask id="rgCliente" mask="9999999999"
+					value="#{RegisterMB.cliente.documentos.rg}" />
+			</div>
+
+			<div class="p-field">
+				<p:outputLabel for="logradouroCliente" value="Logradouro Cliente:" />
+				<p:inputText id="logradouroCliente"
+					value="#{EnderecoBean.endereco.logradouro}" />
+					
+				<p:outputLabel for="cepCliente" value="cep Cliente:" />
+				<p:inputMask id="cepCliente" mask="99999-999"
+					value="#{EnderecoBean.endereco.cep}" />
+					
+				<p:outputLabel for="BairroCliente" value="Bairro Cliente:" />
+				<p:inputText id="BairroCliente"
+					value="#{EnderecoBean.endereco.logradouro}" />
+					
+				<p:outputLabel for="BairroCliente" value="Cidade Cliente:" />
+				<p:inputText id="BairroCliente"
+					value="#{EnderecoBean.endereco.cidade}" />
+					
+				<p:commandButton value="Adicionar endereço" id="addEndereco" update="growl" icon="pi pi-plus" action="#{RegisterMB.addEndereco(EnderecoBean.endereco)}" />
+			</div>
+
+			<div class="p-field">
+
+			</div>
+
+			<div class="p-field">
+				<p:outputLabel for="telefoneCliente" value="Telefone Cliente:" />
+				<p:inputMask id="telefoneCliente"
+					value="#{telefoneBean.telefone.telefone}" mask="(99) 9999-99999"
+					validateMask="true" />
+				<p:commandButton value="Adicionar Telefone" id="addTelefone" update="growl" icon="pi pi-plus" action="#{RegisterMB.addfone(telefoneBean.telefone.telefone)}" />
+			</div>
+		</p:panelGrid>
+		<p:commandButton type="submit" value="Cadastrar"
+			styleClass="ui-button-raised" action="#{RegisterMB.registrar}"
+			ajax="false">
+		</p:commandButton>
+	</h:form>
+</h:body>
+</html>
